@@ -5,7 +5,7 @@ class Transaction():
         assert type(amount) == float, 'Amount needs to be a float'
         assert amount > 0, 'Amount needs to be greater than 0'
         self.sender = sender
-        self. recipient = recipient
+        self.recipient = recipient
         self.subject = subject
         self.amount = amount
 
