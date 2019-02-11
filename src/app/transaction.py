@@ -1,3 +1,7 @@
+import time
+import datetime
+
+
 class Transaction():
     def __init__(self, sender, recipient, subject, amount):
         assert type(sender) == int, 'Sender needs to be an integer'
@@ -8,6 +12,7 @@ class Transaction():
         self.recipient = recipient
         self.subject = subject
         self.amount = amount
+        self.time_date = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
 
     def info(self):
         return 'From {} to {}: {} - {} €'.format(

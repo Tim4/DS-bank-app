@@ -6,6 +6,7 @@ class Account():
         self.lastname = lastname
         self.number = number
         self.balance = balance
+        self.bank_ref = ''
 
     def info(self):
         return 'Number {}: {} {} - {} €'.format(
@@ -26,3 +27,14 @@ class Account():
         assert self.has_funds_for(sub_balance), 'Account has not enough funds'
         self.balance -= sub_balance
         return self.balance
+
+    def account_log(self):
+        for i in self.bank_ref.transactions:
+            if i.recipient == self.number:
+                print('Date: {} Sender: {} Subject: {} Amount: +{}'.
+                      format(i.time_date, i.sender, i.subject, i.amount))
+            elif i.sender == self.number:
+                print('Date: {} Recipient: {} Subject: {} Amount: -{}'
+                      .format(i.time_date, i.recipient, i.subject, i.amount))
+        print("Total Balance: " + str(self.bank_ref.accounts[self.number].balance))
+
